@@ -87,6 +87,11 @@ public class User {
         final StringBuffer sb = new StringBuffer("User{");
         sb.append("symbol='").append(symbol).append('\'');
         sb.append(", open='").append(open).append('\'');
+        // sb.append(", high='").append(high).append('\'');
+        // sb.append(", low='").append(low).append('\'');
+        // sb.append(", close='").append(close).append('\'');
+        // sb.append(", oi='").append(oi).append('\'');
+        // sb.append(", vol='").append(vol).append('\'');
         sb.append('}');
         return sb.toString();
     }
