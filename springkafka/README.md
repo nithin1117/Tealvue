@@ -1,6 +1,6 @@
 # Spring Boot with Kafka Consumer
 #change directory to kafka for example use version accordingly:
-cd Downloads/kafka_2.13-3.0.0/
+-`cd Downloads/kafka_2.13-3.0.0/`
 
 
 ## Start Zookeeper
