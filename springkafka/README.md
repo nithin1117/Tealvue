@@ -28,7 +28,9 @@
 
 
 #KafkaTopic in case need to pass any valid messages alone
+
 -`bin/kafka-console-producer.sh --topic KafkaExample --bootstrap-server localhost:9092`
+
 #eg:
 -`hello Tealvue!`
 
