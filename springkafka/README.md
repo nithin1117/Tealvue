@@ -1,5 +1,5 @@
 # Spring Boot with Kafka Consumer
-#change directory to kafka for example use version accordingly:
+#change directory to kafka folder for example:
 -`cd Downloads/kafka_2.13-3.0.0/`
 
 
