@@ -17,6 +17,6 @@ public class KafkaConsumer {
     @KafkaListener(topics = "sampleKafka", group = "group_json",
             containerFactory = "userKafkaListenerFactory")
     public void consumeJson(User user) {
-        System.out.println("ticker, open, high, low, close: " + user);
+        System.out.println("Ticker: " + user);
     }
 }
