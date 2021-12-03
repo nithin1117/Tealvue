@@ -22,6 +22,7 @@
 
 #eg for sampleKafka to produce for ticker details in stock market
 -`{"symbol":"Titan", "open":23800.00}`
+
 -`{"symbol":"Titan", "open":23800.00, "high":2422.65, "low":2360.30, "close":2384.00, "oi":1125, "vol":372255}` #some are commented
 
 
