@@ -13,6 +13,7 @@
 
 ## Create Kafka Topic for ubuntu
 -`bin/kafka-topics.sh --create --topic KafkaExample --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1`
+
 -`bin/kafka-topics.sh --create --topic sampleKafka --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1`
 
 
