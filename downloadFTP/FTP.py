@@ -1,4 +1,5 @@
-import ftplib
+from ftplib import FTP
+
 from datetime import date
 
 
@@ -7,9 +8,14 @@ mon = today.strftime("%b").upper()
 DMY = today.strftime("%d" + mon + "%y")
 
 
-path = '/Common/NTNEAT'
+ftp = FTP('ftp.connect2nse.com')
+ftp.login('FTPGUEST', 'FTPGUEST')
 
-# fileName = "contract.gz_"+DMY
+
+path = '/Common/NTNEAT'
+ftp.cwd(path)
+
+# fileName1 = "contract.gz_"+DMY
 fileName1 = "contract.gz_23Nov2021"
 fileName2 = "nnf_participant.gz_23Nov2021"
 fileName3 = "nnf_security.gz_23Nov2021"
@@ -17,19 +23,17 @@ fileName4 = "participant.gz_23Nov2021"
 fileName5 = "security.gz"
 fileName6 = "spd_contract.gz"
 
+#dir = input()
+#change directory according to your preferences
+dir = "/home/nithin/Documents"
 
-ftp = ftplib.FTP('ftp.connect2nse.com')
-ftp.login('FTPGUEST', 'FTPGUEST')
-ftp.cwd(path)
-
-# ftp.retrlines("LIST")
-
-ftp.retrbinary("RETR " + fileName1, open(fileName1, 'wb').write)
-ftp.retrbinary("RETR " + fileName2, open(fileName2, 'wb').write)
-ftp.retrbinary("RETR " + fileName3, open(fileName3, 'wb').write)
-ftp.retrbinary("RETR " + fileName4, open(fileName4, 'wb').write)
-ftp.retrbinary("RETR " + fileName5, open(fileName5, 'wb').write)
-ftp.retrbinary("RETR " + fileName6, open(fileName6, 'wb').write)
+ftp.retrbinary("RETR " + fileName1, open(dir + fileName1, 'wb').write)
+ftp.retrbinary("RETR " + fileName2, open(dir + fileName2, 'wb').write)
+ftp.retrbinary("RETR " + fileName3, open(dir + fileName3, 'wb').write)
+ftp.retrbinary("RETR " + fileName4, open(dir + fileName4, 'wb').write)
+ftp.retrbinary("RETR " + fileName5, open(dir + fileName5, 'wb').write)
+ftp.retrbinary("RETR " + fileName6, open(dir + fileName6, 'wb').write)
 
 
-ftp.quit()
+ftp.close()
+print("Downloaded")
