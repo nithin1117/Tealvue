@@ -20,3 +20,17 @@ while True:
 mon = calendar.month_abbr[int(day.month)]
 DMY = (f"{day.day}" + mon + f"{day.year}")
 print(DMY)
+
+
+
+
+# #today's date
+# from datetime import date
+
+# today = date.today()
+# mon = today.strftime("%b")
+
+# DMY = today.strftime("%d" + mon + "%Y")
+
+# print(DMY)
+
