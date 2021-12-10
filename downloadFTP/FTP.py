@@ -1,11 +1,9 @@
 from ftplib import FTP
-
 from datetime import date
-
 
 today = date.today()
 mon = today.strftime("%b").upper()
-DMY = today.strftime("%d" + mon + "%y")
+DMY = today.strftime("%d"+ mon +"%Y")
 
 
 ftp = FTP('ftp.connect2nse.com')
