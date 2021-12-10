@@ -3,13 +3,13 @@ import sys
 import calendar
 
 while True:
-    day = input('Enter date(dd/mm/yy) ')
+    day = input('Enter date(dd/mm/yy):')
     try :
         day = datetime.datetime.strptime(day, "%d/%m/%Y")
         break
     except ValueError:
-        print("Error: must be format dd/mm/yyyy ")
-        day = input('Enter date(dd/mm/yy)')
+
+        day = input('Error: Try in the format dd/mm/yyyy:')
         try:
             day = datetime.datetime.strptime(day, "%d/%m/%Y")
             break
