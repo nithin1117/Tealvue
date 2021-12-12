@@ -3,7 +3,6 @@ from ftplib import FTP
 import gzip
 import shutil
 
-
 # '''To execute in current date'''
 # from datetime import date
 # today = date.today()
@@ -17,13 +16,13 @@ import sys
 import calendar
 
 while True:
-    day = input('Enter date(dd/mm/yy):')
-    try :
+    day = input('Enter date[DD/MM/YYYY]:')
+    try:
         day = datetime.datetime.strptime(day, "%d/%m/%Y")
         break
     except ValueError:
 
-        day = input('Error: Try in the format dd/mm/yyyy:')
+        day = input('Error: Try in the format DD/MM/YYYY:')
         try:
             day = datetime.datetime.strptime(day, "%d/%m/%Y")
             break
@@ -34,7 +33,10 @@ while True:
 mon = calendar.month_abbr[int(day.month)]
 DMY = (f"{day.day}" + mon + f"{day.year}")
 
-
+if DMY[1].isalpha():
+    DMY = DMY.zfill(9)
+else:
+    pass
 
 
 ftp = FTP('ftp.connect2nse.com')
@@ -43,57 +45,66 @@ ftp.login('FTPGUEST', 'FTPGUEST')
 path = '/Common/NTNEAT'
 ftp.cwd(path)
 
-fileName1 = "contract.gz_"+DMY
-fileName2 = "nnf_participant.gz_"+DMY
-fileName3 = "nnf_security.gz_"+DMY
-fileName4 = "participant.gz_"+DMY
-fileName5 = "security.gz"
-fileName6 = "spd_contract.gz"
-
 try:
-    dir = input("Enter path(with / in front and back):")
-#    dir = "/home/nithin/Documents/sample/new/"
+    dir1 = input("enter path:")
+    # dir1 = "/home/nithin/Documents/sample/new/extracted/"
 
+    fName1 = "contract.gz_" + DMY
+    fName2 = "nnf_participant.gz_" + DMY
+    fName3 = "nnf_security.gz_" + DMY
+    fName4 = "participant.gz_" + DMY
+    fName5 = "security.gz"
+    fName6 = "spd_contract.gz"
 
-    ftp.retrbinary("RETR " + fileName2, open(dir + fileName2[:18], 'wb').write)
-    ftp.retrbinary("RETR " + fileName3, open(dir + fileName3[:15], 'wb').write)
-    ftp.retrbinary("RETR " + fileName4, open(dir + fileName4[:14], 'wb').write)
-    ftp.retrbinary("RETR " + fileName5, open(dir + fileName5, 'wb').write)
-    ftp.retrbinary("RETR " + fileName6, open(dir + fileName6, 'wb').write)
-    ftp.retrbinary("RETR " + fileName1, open(dir + fileName1[:11], 'wb').write)
+    pdir1 = dir1 + fName1
+    pdir2 = dir1 + fName2
+    pdir3 = dir1 + fName3
+    pdir4 = dir1 + fName4
+    pdir5 = dir1 + fName5
+    pdir6 = dir1 + fName6
+    
+
+    ftp.retrbinary("RETR " + fName1, open(pdir1, 'wb').write)
+    ftp.retrbinary("RETR " + fName2, open(pdir2, 'wb').write)
+    ftp.retrbinary("RETR " + fName3, open(pdir3, 'wb').write)
+    ftp.retrbinary("RETR " + fName4, open(pdir4, 'wb').write)
+    ftp.retrbinary("RETR " + fName5, open(pdir5, 'wb').write)
+    ftp.retrbinary("RETR " + fName6, open(pdir6, 'wb').write)
 
     ftp.close()
     print("Downloaded")
 
-    with open('/home/nithin/Documents/sample/new/contract.gz', 'rb') as f_in:
-        with gzip.open('/home/nithin/Documents/sample/new/extracted/contract' + DMY + '.txt', 'wb') as f_out:
+    with open(pdir1, 'rb') as f_in:
+        with gzip.open(dir1 + fName1 + '.txt', 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-    with open('/home/nithin/Documents/sample/new/nnf_participant.gz', 'rb') as f_in:
-        with gzip.open('/home/nithin/Documents/sample/new/extracted/nnf_participant' + DMY + '.txt', 'wb') as f_out:
+    with open(pdir2, 'rb') as f_in:
+        with gzip.open(dir1 +fName2 + '.txt', 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-    with open('/home/nithin/Documents/sample/new/nnf_security.gz', 'rb') as f_in:
-        with gzip.open('/home/nithin/Documents/sample/new/extracted/nnf_security' + DMY + '.txt', 'wb') as f_out:
+    with open(pdir3, 'rb') as f_in:
+        with gzip.open(dir1 +fName3 + '.txt', 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-    with open('/home/nithin/Documents/sample/new/participant.gz', 'rb') as f_in:
-        with gzip.open('/home/nithin/Documents/sample/new/extracted/participant' + DMY + '.txt', 'wb') as f_out:
+
+    with open(pdir4, 'rb') as f_in:
+        with gzip.open(dir1 +fName4 + '.txt', 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-    with open('/home/nithin/Documents/sample/new/security.gz', 'rb') as f_in:
-        with gzip.open('/home/nithin/Documents/sample/new/extracted/security' + DMY + '.txt', 'wb') as f_out:
+
+    with open(pdir5, 'rb') as f_in:
+        with gzip.open(dir1 +fName5 + '.txt', 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-    with open('/home/nithin/Documents/sample/new/spd_contract.gz', 'rb') as f_in:
-        with gzip.open('/home/nithin/Documents/sample/new/extracted/spd_contract' + DMY + '.txt', 'wb') as f_out:
-            shutil.copyfileobj(f_in, f_out)
-            
 
+    with open(pdir6, 'rb') as f_in:
+        with gzip.open(dir1 +fName6 + '.txt', 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
 
     print("Extracted!!!...")
-   
+
+except (FileNotFoundError, IOError):
+    print("Wrong file or file path")
 
 except:
-    print("Either File not Found or Path directory Error")
-
+    print("File not Found")
