@@ -11,6 +11,7 @@ public class SpringBootKafkaConsumerExampleApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }
