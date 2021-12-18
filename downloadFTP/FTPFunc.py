@@ -84,8 +84,3 @@ if check != "error":
     for i in range(2, 7):
         ftpfile(dmy, i)
     print("Downloaded and extracted!")
-else:
-    key = 'FTPFILES'
-    dir = os.getenv(key) + "/"
-    if os.path.exists(dir):
-        os.remove("demofile.txt")
