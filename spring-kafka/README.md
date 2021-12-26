@@ -1,6 +1,6 @@
 # Spring Boot with Kafka Consumer
 
-##change directory to kafka for example use version accordingly: -cd Downloads/kafka_2.13-3.0.0/
+# change directory to kafka for example use version accordingly: -cd Downloads/kafka_2.13-3.0.0/
 
 ## Start Zookeeper
 - `bin/zookeeper-server-start.sh config/zookeeper.properties`
@@ -16,6 +16,6 @@
 - `bin/kafka-console-producer.sh --topic KafkaEx --bootstrap-server localhost:9092`
 - `bbin/kafka-console-producer.sh --topic samplekafka --bootstrap-server localhost:9092`
 
-##eg for sampleKafka to produce for ticker details in stock market -{"symbol":"Titan", "open":23800.00} -{"symbol":"Titan", "open":23800.00, "high":2422.65, "low":2360.30, "close":2384.00, "oi":1125, "vol":372255} #some are commented
+## eg for sampleKafka to produce for ticker details in stock market -{"symbol":"Titan", "open":23800.00} -{"symbol":"Titan", "open":23800.00, "high":2422.65, "low":2360.30, "close":2384.00, "oi":1125, "vol":372255} #some are commented
 
-#KafkaTopic in case need to pass any valid messages alone -bin/kafka-console-producer.sh --topic KafkaEx --bootstrap-server localhost:9092 #eg: -hello Tealvue!
+## KafkaTopic in case need to pass any valid messages alone -bin/kafka-console-producer.sh --topic KafkaEx --bootstrap-server localhost:9092 #eg: -hello Tealvue!
