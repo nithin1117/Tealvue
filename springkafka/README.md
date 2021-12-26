@@ -1,6 +1,6 @@
-#Spring Boot with Kafka consumer
+##Spring Boot with Kafka consumer
 
-#change directory to kafka for example use version accordingly: -cd Downloads/kafka_2.13-3.0.0/
+##change directory to kafka for example use version accordingly: -cd Downloads/kafka_2.13-3.0.0/
 
 Start Zookeeper
 -bin/zookeeper-server-start.sh config/zookeeper.properties
