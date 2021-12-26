@@ -50,9 +50,9 @@ def ftpfile(dmy):
     path = '/Common/NTNEAT'
     ftp.cwd(path)
     try:
-        #key = 'FTPFILES'
-        #dir = os.getenv(key) + "/"
-        dir = "/home/nithin/Documents/script/sample/"
+        key = 'FTPFILES'
+        dir = os.getenv(key) + "/"
+        #dir = "/home/nithin/dataCollect/trimData/test/src/script/files/"
         try:
             fName = [
                 "contract.gz_" + dmy,
@@ -65,17 +65,15 @@ def ftpfile(dmy):
             for i in range(4):
                 pathDir = dir + fName[i]
                 ftp.retrbinary("RETR " + fName[i], open(pathDir, 'wb').write)
-                
 
                 with open(pathDir, 'rb') as f_in:
-                    with gzip.open(pathDir[:-13]+ dmy + '.txt', 'wb') as f_out:
+                    with gzip.open(pathDir[:-13] + dmy + '.txt', 'wb') as f_out:
                         shutil.copyfileobj(f_in, f_out)
                         
             for i in range(4, 6):
                 pathDir = dir + fName[i]
                 ftp.retrbinary("RETR " + fName[i], open(pathDir, 'wb').write)
                 
-
                 with open(pathDir, 'rb') as f_in:
                     with gzip.open(pathDir[:-3] + '.txt', 'wb') as f_out:
                         shutil.copyfileobj(f_in, f_out)
