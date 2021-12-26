@@ -50,7 +50,7 @@ def ftpfile(dmy):
     try:
         key = 'FTPFILES'
         dir = os.getenv(key) + "/"
-        # dir = "/home/nithin/Documents/sample/new/check/"
+        # dir = "/home/nithin/datatCollect/trimData/test/src/script/folder/"
         try:
             fName = [
                 "contract.gz_" + dmy,
